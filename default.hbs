@@ -17,75 +17,14 @@
 
     {{!-- Styles'n'Scripts --}}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/styles.css"}}" />
 
-    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
-    {{ghost_head}}
-
+    <script type="text/javascript" src="{{asset "js/bootstrap.bundle.min.js"}}"></script>
 </head>
 <body class="{{body_class}}">
 
-    <div class="preloader"></div>
-
     {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
     {{{body}}}
-
-    {{!-- The footer at the very bottom of the screen --}}
-    <footer class="bg-dark navbar-fixed-bottom text-white py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{@site.url}}">{{@site.title}} &copy; {{date format="YYYY"}}</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm">
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{@site.url}}">Latest Posts</a>
-                        </li>
-                        {{#if @site.facebook}}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>
-                            </li>
-                        {{/if}}
-                        {{#if @site.twitter}}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>
-                            </li> 
-                        {{/if}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                        </li>
-                    </ul>                        
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    {{!-- The big email subscribe modal content --}}
-    {{#if @labs.subscribers}}
-    <div id="subscribe" class="modal fade">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body p-4">
-                    {{#if @site.logo}}
-                        <img class="mx-auto" src="{{@site.logo}}" alt="{{@site.title}}" />
-                    {{else}}
-                        <span class="navbar-brand">{{@site.title}}</span>
-                    {{/if}}
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h1>Subscribe to {{@site.title}}</h1>
-                    <p>Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-                    {{subscribe_form input_class="form-control" button_class="btn btn-primary btn-lg my-2" placeholder="youremail@example.com"}}
-                </div>
-            </div>
-        </div>
-    </div>
-    {{/if}}
 
     <script>
         var images = document.querySelectorAll('.kg-gallery-image img');

@@ -1,45 +1,30 @@
-<div class="card my-5 {{post_class}} {{#unless feature_image}}no-image{{else}}{{#is "home"}}{{#has index="nth:6"}}post-card-large{{/has}}{{/is}}{{/unless}}">    
-    {{#if feature_image}}
-    <a href="{{url}}">
-        {{!-- This is a responsive image, it loads different sizes depending on device
-        https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-        <img class="card-img-top"
-            src="{{img_url feature_image size="m"}}"
-            alt="{{title}}"
-        />
-    </a>
-    {{/if}}
+<div class="col-4">
+  <div class="card d-block">
+    {{#primary_tag}}
+      <div class="card-header">
+        {{name}}
+      </div>
+    {{/primary_tag}}
     <div class="card-body">
-        <a class="" href="{{url}}">
-            {{#if primary_tag}}
-                <span class="post-card-tags">{{primary_tag.name}}</span>
-            {{/if}}
-            <h2 class="card-title">{{title}}</h2>
-            <section class="post-card-excerpt">
-                <p>{{excerpt words="33"}}</p>
-            </section>
-        </a>
+      <a href="{{url}}" style="text-decoration: none;">
+        <h3 class="card-title">{{title}}</h3>
+      </a>
+      <a href="{{url}}" style="text-decoration: none;">
+        <p class="card-text">
+          {{excerpt}}
+        </p>
+      </a>
     </div>
-    <div class="card-footer">
-        <div class="row">
-            <div class="col">
-                <ul class="author-list">
-                    {{#foreach authors}}
-                        {{#if profile_image}}
-                            <li class="author-list-item"><a href="{{url}}" class="card-link static-avatar" data-toggle="tooltip" title="{{name}}">
-                                <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
-                            </a></li>
-                        {{else}}
-                            <li class="author-list-item">
-                                <a href="{{url}}" class="card-link static-avatar static-avatar-wrapper bg-dark text-light"><i class="fas fa-user"></i></a>
-                            </li>
-                        {{/if}}
-                    {{/foreach}}
-                </ul>
-            </div>
-            <div class="col text-right pt-1 pr-3">
-                <span class="text-muted">{{reading_time}}</span>
-            </div>
-        </div>                
-    </div>
+    {{#primary_author}}
+      <div class="card-footer">
+        <img src={{profile_image}} class="rounded-circle" style="width: 40px; height: 40px;" alt="">
+        <p>
+          <span>{{date ../published_at format="MMMM D, YYYY"}}</span>
+          {{#if ../reading_time}}
+            <span>· {{../reading_time}} min read</span>
+          {{/if}}
+        </p>
+      </div>
+    {{/primary_author}}
+  </div>
 </div>
