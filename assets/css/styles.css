@@ -12391,7 +12391,7 @@ main.about {
 
 .contact-us-get-in-touch {
   background: rgba(245, 245, 245, 0.5019607843);
-  padding: 6.6rem 4.8rem;
+  padding: 9.6rem 4.8rem;
   margin-right: 3rem;
   margin-bottom: 2rem;
 }
@@ -12444,6 +12444,18 @@ main.about {
 }
 .contact-us-review p {
   margin-bottom: 7.8rem;
+}
+
+.cover:after {
+  content: "\a0";
+  display: block;
+  border-bottom: 26px solid white;
+  position: relative;
+  bottom: 85px;
+}
+
+.posting-form {
+  padding-left: 20%;
 }
 
 /*# sourceMappingURL=styles.css.map */
